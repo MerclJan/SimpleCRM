@@ -1,0 +1,69 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+
+    <div class="container bg-light shadow-md p-5 form-layout">
+
+        <h2> Vytvořit záznam </h2>
+
+        <h6> Začněte vyplňovat požadované detaily vašeho záznamu. </h6>
+
+        <hr>
+        <br>
+
+        <form method="POST" autocomplete="off">
+                        
+            {% csrf_token %}
+
+            {{form.first_name|as_crispy_field}}
+
+            <br>
+
+            {{form.last_name|as_crispy_field}}
+
+            <br>
+
+            {{form.email|as_crispy_field}}
+
+            <br>
+
+            {{form.phone|as_crispy_field}}
+
+            <br>
+
+            {{form.address|as_crispy_field}}
+
+            <br>
+
+            {{form.city|as_crispy_field}}
+
+            <br>
+
+            {{form.country|as_crispy_field}}
+
+            <br>
+
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+                Zpět &nbsp;
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+
+            
+            <button type="submit" class="btn btn-primary">
+                Vytvořit záznam &nbsp;
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            </button>
+
+        </form>
+
+    </div>
+
+    <br>
+
+</body>
+
+{% endblock %}

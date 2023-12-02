@@ -1,0 +1,71 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Vítej na hlavní stránce, uživateli <strong>{{user}}</strong>! </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+        Vytvořit nový záznam &nbsp;
+        <i class="fa fa-plus-square" aria-hidden="true"></i>
+    </a>
+
+    <hr>
+
+    <table class="table table-light table-hover table-bordered">
+
+        <thead class="table-info">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Jméno </th>
+                <th scope="col"> Příjmení </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Telefon </th>
+                <th scope="col"> Adresa </th>
+                <th scope="col"> Město </th>
+                <th scope="col"> Stát </th>
+                <th scope="col"> Datum vytvoření </th>
+                <th scope="col"> Zobrazit </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}
+            
+            {% for record in records %}
+
+            <tr>
+
+                <td>{{record.id}}</td>
+                <td>{{record.first_name}}</td>
+                <td>{{record.last_name}}</td>
+                <td>{{record.email}}</td>
+                <td>{{record.phone}}</td>
+                <td>{{record.address}}</td>
+                <td>{{record.city}}</td>
+                <td>{{record.country}}</td>
+                <td>{{record.creation_date}}</td>
+
+                <td>
+                    <a class="btn btn-outline-info btn-sm" href="{% url 'record' record.id %}">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                </td>
+                
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+{% endblock %}

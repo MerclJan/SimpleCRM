@@ -1,0 +1,53 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h2> Přihlášení </h2>
+
+            <hr>
+
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.username|as_crispy_field}}
+
+                <br>
+                
+                {{form.password|as_crispy_field}}
+
+                <br>
+
+                <button type="submit" class="btn btn-primary">
+                    Přihlásit &nbsp;
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+
+            </form>
+
+            <br>
+
+            <div class="text-center">
+
+                <p> Nemáte účet? </p>
+                <a href="{% url 'register' %}"> Registrujte se! </a>
+
+            </div>
+
+        </div>
+
+        <br>        
+
+    </body>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.form-layout{
+
+    border-radius: 15px;
+    width: 600px;
+
+}
+
+.message-text{
+
+    color: white;
+
+}
+
+.container{
+
+    z-index: 10;
+
+}
+
+
+.alert-box{
+
+    position: absolute;
+    right: 0%;
+    z-index: 11;
+
+}
+
+
+.forms-help{
+
+    font-size: small;
+    
+}
+

@@ -1,0 +1,55 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body">
+            <strong>
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                &nbsp;
+                {{record.last_name|upper}}
+                {{record.first_name}}
+                <hr>
+            </strong>
+
+            <p> <strong> ID: </strong> {{record.id}} </p>
+
+            <p> <strong> Email: </strong> {{record.email}} </p>
+
+            <p> <strong> Telefon: </strong> {{record.phone}} </p>
+
+            <p> <strong> Adresa: </strong> {{record.address}} </p>
+
+            <p> <strong> Město: </strong> {{record.city}} </p>
+
+            <p> <strong> Stát: </strong> {{record.country}} </p>
+
+            <p> <strong> Datum vytvoření: </strong> {{record.creation_date}} </p>
+
+        </div>
+        
+    </div>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> 
+        Zpět &nbsp;
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </a>
+    
+    &nbsp;
+
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info">
+        Upravit &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </a>
+
+    &nbsp;
+
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger">
+        Odstranit &nbsp;
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </a>
+
+{% endblock %}

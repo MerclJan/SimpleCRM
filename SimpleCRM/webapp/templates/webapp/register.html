@@ -1,0 +1,68 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h2> Vytvořit účet </h2>
+
+            <h5> Začněte spravovat uživatelskou databázi již dnes! </h5>
+
+            <hr>
+
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.username|as_crispy_field}}
+
+                <br>
+
+                {{form.password1|as_crispy_field}}
+
+                <p class="forms-help">
+
+                    Heslo musí mít minimálně 8 znaků.<br>
+
+                    Heslo nesmí být příliš podobné uživatelskému jménu ani běžně používaným heslům.<br>
+
+                    Heslo nesmí být složeno pouze z čísel.
+
+                </p>
+
+                <br>
+
+                {{form.password2|as_crispy_field}}
+
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2">
+                    Založit nový účet &nbsp;
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </button>
+
+            </form>
+
+            <br>
+
+            <div class="text-center">
+
+                <p> Již máte účet? </p> <a href="{% url 'my-login' %}"> Přihlašte se </a>
+
+            </div>
+
+        </div>
+
+        <br>        
+
+    </body>
+
+    </div>
+
+{% endblock %}

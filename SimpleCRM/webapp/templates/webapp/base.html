@@ -1,0 +1,74 @@
+{% load static %}
+
+    <!DOCTYPE html>
+
+    <html lang="cs-cz">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <!-- Check the documentation for bootstrap on https://getbootstrap.com/docs/5.3/getting-started/introduction/ if everything is okay in the head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Simple CRM </title>
+
+        <!-- Choice of different styles from bootswatch.com; at the top (bottom static css) to avoid problems-->
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/sandstone/bootstrap.min.css">
+
+        <!-- Link static css file styles.css from project in directory static/css/, so now I can custom the look easily  -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+         <!-- Allow to add different icons from https://fontawesome.com/v4/icons/ (simply in <i> tag </i>)-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+    </head>
+
+
+    <body>
+            <!-- Navigation bar -->
+            {% include 'webapp/navbar.html' %}
+            
+            <div class="container">
+
+                <br>
+
+                <!-- Notification messages (after successful record create/update/delete, logout)-->
+                {% for message in messages %}
+                    
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+                        <div class="alert-box">
+                        
+                            <p id="message-timer" class="alert alert-dismimssible alert-success float-center text-center message-text">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            &nbsp; {{message}}
+                            </p>
+                        
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                {% block content %}
+                
+                {% endblock %}
+
+            </div>
+
+            <script src="{% static 'js/app.js' %}"></script>
+
+            <!--Added from bootstrap documentation (on website https://getbootstrap.com/docs/5.3/getting-started/introduction/ ); nescecssary for navigation bar-->
+            
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </body>
+    
+    </html>

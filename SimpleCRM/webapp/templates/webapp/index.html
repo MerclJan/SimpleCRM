@@ -1,0 +1,44 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <body> 
+
+        <br>
+
+        <br>
+
+        <div class="text-center">
+
+            <h3> Simple&nbsp;CRM ... rychlá a intuitivní správa&nbsp;uživatelů </h3>
+
+            <br>
+            
+            <h5> Spravujte své záznamy rychle a intuitivně! </h5>
+
+            <hr> <!-- Horizontal line (looks better) -->
+
+            <br>
+
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}">
+                Vytvořit účet &nbsp;
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+            </a>
+            
+        </div>
+
+        <hr>
+
+        <div class="container bg-light shadow-md p-5 form-layout fw-light">
+
+            Webová aplikace Simple CRM vznikla jako vzorový projekt.<br>
+
+            Za případné škody vzniklé vypnutím serveru, smazáním dat nebo účtů autor nenese žádnou zodpovědnost.<br>
+
+            Vytvořil Jan Mercl.<br>
+            
+        </div>
+
+    </body>
+
+{% endblock %}
